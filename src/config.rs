@@ -15,3 +15,5 @@ pub fn from_env() -> Figment {
         .merge(("address", address))
         .merge(("port", port))
 }
+
+pub const DEFAULT_OLLAMA_MODEL: &str = "llama3.1:latest";

@@ -5,9 +5,9 @@ use serde::Serialize;
 use serde_json::json;
 
 #[derive(Serialize, Debug, Clone)]
-pub struct UnAuthResponse<'a> {
-    #[serde(rename = "msg")]
-    pub msg: &'a str,
+pub struct UnAuthResponse {
+    #[serde(rename = "response")]
+    pub response: String,
 }
 
 pub enum ApiResponse<'a, T> {
@@ -57,3 +57,13 @@ impl<'r, 'o: 'r> Responder<'r, 'o> for ErrorResponse<'r> {
         }
     }
 }
+
+pub const BAD_REQUEST: &'static ErrorResponse<'static> = &ErrorResponse {
+    status: Status::BadRequest,
+    message: "Bad Request",
+};
+
+pub const PROMPT_IS_EMPTY: &'static ErrorResponse<'static> = &ErrorResponse {
+    status: Status::BadRequest,
+    message: "Prompt is empty",
+};

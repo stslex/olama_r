@@ -2,6 +2,8 @@ use rocket::serde::Deserialize;
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct UnAuthRequest<'a> {
-    #[serde(rename = "msg")]
-    pub msg: &'a str,
+    #[serde(rename = "prompt")]
+    pub prompt: &'a str,
+    #[serde(rename = "model")]
+    pub model: Option<&'a str>,
 }
