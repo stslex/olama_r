@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+ollama-rs = "0.2.1"
+dotenv = "0.15.0"
+rocket = { version = "0.5.1", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+tokio-test = "0.4.3"
